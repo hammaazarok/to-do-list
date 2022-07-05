@@ -1,4 +1,4 @@
-let TodoListItems = (taskss) => {
+const TodoListItems = (taskss) => {
   const todolist = document.querySelector('.list-container');
 
   taskss.forEach((e) => {
@@ -17,6 +17,6 @@ let TodoListItems = (taskss) => {
     todolist.appendChild(divElement);
     todolist.appendChild(divElement2);
   });
-}
+};
 export default TodoListItems;
 export { TodoListItems };
