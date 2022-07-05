@@ -1,4 +1,4 @@
-function TodoListItems(taskss) {
+let TodoListItems = (taskss) => {
   const todolist = document.querySelector('.list-container');
 
   taskss.forEach((e) => {
