@@ -1,5 +1,6 @@
 import './index.css';
-
+import './todolist.js'
+import { Todo_list_Item, Todo_list_Items } from './todolist.js';
 let tasks = [
     {
         description:"Write article",
@@ -18,12 +19,6 @@ let tasks = [
     }
 ]
 
-function component() {
-    // const divElement = document.createElement('div');
-    // const li = document.createElement('li');
-    // h2.innerText = 'My first webpack setup';
-    // divElement.appendChild(h2);
-    // return divElement;
-}
 
+Todo_list_Items(tasks);
 // document.body.appendChild(component());
