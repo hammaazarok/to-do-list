@@ -1,6 +1,3 @@
-import * as addRemove from './add-remove.js'
-import * as storage from './storage.js'
-
 const TodoListItems = (taskss) => {
   const todolist = document.querySelector('.list-container');
   todolist.innerHTML = '';
@@ -20,10 +17,6 @@ const TodoListItems = (taskss) => {
     todolist.appendChild(divElement);
     todolist.appendChild(divElement2);
   });
-
-  addRemove.TodoListDelete(taskss);
- 
 };
-
-
+export default TodoListItems;
 export { TodoListItems };

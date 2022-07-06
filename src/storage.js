@@ -5,7 +5,7 @@ class StorageAvailable {
   }
 
   try() {
-    const x = "__storage_test__";
+    const x = '__storage_test__';
     this.storage.setItem(x, x);
     this.storage.removeItem(x);
     return true;
@@ -13,32 +13,30 @@ class StorageAvailable {
 
   catch(e) {
     return (
-      e instanceof DOMException &&
-      (e.code === 22 ||
-        e.code === 1014 ||
-        e.name === "QuotaExceededError" ||
-        e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
-      this.storage &&
-      this.storage.length !== 0
+      e instanceof DOMException
+      && (e.code === 22
+        || e.code === 1014
+        || e.name === 'QuotaExceededError'
+        || e.name === 'NS_ERROR_DOM_QUOTA_REACHED')
+      && this.storage
+      && this.storage.length !== 0
     );
   }
 }
-const setTasksToStorage = (taskss)=>{
-    localStorage.setItem('Tasks', JSON.stringify(taskss));
-}
+const setTasksToStorage = (taskss) => {
+  localStorage.setItem('Tasks', JSON.stringify(taskss));
+};
 
 const getTasksFromStorage = () => {
-  if (new StorageAvailable("localStorage")) {
-    const tasksFromStorage = JSON.parse(localStorage.getItem("Tasks"));
+  if (new StorageAvailable('localStorage')) {
+    const tasksFromStorage = JSON.parse(localStorage.getItem('Tasks'));
 
     if (tasksFromStorage !== null) {
       return tasksFromStorage;
-    }else{
-        return [];
     }
-  } else {
-   return [];
+    return [];
   }
+  return [];
 };
 
-export {getTasksFromStorage,setTasksToStorage};
+export { getTasksFromStorage, setTasksToStorage };
