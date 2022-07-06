@@ -45,6 +45,7 @@ const TodoListAdd = (taskss, task) => {
   taskss.push(task);
   todoList.TodoListItems(taskss);
   TodoListDelete(taskss);
+  storage.setTasksToStorage(taskss);
 };
 
 export { TodoListAdd, TodoListDelete, reindexTasks };
