@@ -1,23 +1,29 @@
 import './index.css';
-import { TodoListItems } from './todolist.js';
+import * as todoList from './todolist.js';
+import * as addRemove from './add-remove.js'
+import * as storage from './storage.js'
 
-const tasks = [
-  {
-    description: 'Write article',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Go shop',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Complete 2 coding challenges',
-    completed: false,
-    index: 2,
-  },
-];
+let tasks = storage.getTasksFromStorage();
 
-TodoListItems(tasks);
-// document.body.appendChild(component());
+todoList.TodoListItems(tasks);
+
+const addTask = document.querySelector('.text-area')
+addTask.addEventListener('keydown',(e)=>{
+ 
+  if(e.keyCode === 13){
+    const task = {
+      description: addTask.value,
+      completed: false,
+      index: tasks.length,
+    }
+      addRemove.TodoListAdd(tasks,task);
+      storage.setTasksToStorage(tasks);
+      addTask.value = null;
+  }
+})
+    
+
+
+ 
+
+
