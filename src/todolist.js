@@ -7,7 +7,7 @@ const TodoListItems = (taskss) => {
     const htmlitem = `
             <div>
                 <input type="checkbox" name="item" id="item" />
-                <textarea for="item" class="item" required"">${e.description}</textarea>
+                <textarea rows="1" for="item" class="item" required"">${e.description}</textarea>
             </div>
             <i class="fa-solid fa-ellipsis-vertical"></i>
         `;
@@ -18,5 +18,6 @@ const TodoListItems = (taskss) => {
     todolist.appendChild(divElement2);
   });
 };
+
 export default TodoListItems;
 export { TodoListItems };
