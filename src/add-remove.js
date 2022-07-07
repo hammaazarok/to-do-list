@@ -1,5 +1,6 @@
-import * as todoList from './todolist.js';
+import TodoListItems from './todolist.js';
 import * as storage from './storage.js';
+import { changeStatus } from './interactive.js';
 
 const reindexTasks = (taskss) => {
   taskss.forEach((element, i) => {
@@ -22,9 +23,10 @@ const TodoListEdit = (tasks) => {
       };
       tasks[index] = task;
       storage.setTasksToStorage(tasks);
-      todoList.TodoListItems(tasks);
+      TodoListItems(tasks);
       reindexTasks(tasks);
       TodoListDelete(tasks);
+      changeStatus(tasks);
     });
   });
 };
@@ -44,9 +46,10 @@ const TodoListDelete = (taskss) => {
             taskss = taskss.filter((t) => t.index !== eindex);
             taskss = reindexTasks(taskss);
             storage.setTasksToStorage(taskss);
-            todoList.TodoListItems(taskss);
+            TodoListItems(taskss);
             TodoListDelete(taskss);
             TodoListEdit(taskss);
+            changeStatus(taskss);
           }
         });
         removeTask.forEach((t) => {
@@ -76,11 +79,12 @@ const TodoListAdd = (taskss) => {
         index: taskss.length,
       };
       taskss.push(task);
-      todoList.TodoListItems(taskss);
+      TodoListItems(taskss);
       TodoListDelete(taskss);
       storage.setTasksToStorage(taskss);
       addTask.value = null;
       TodoListEdit(taskss);
+      changeStatus(taskss);
     }
   });
 };
