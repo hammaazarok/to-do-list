@@ -1,8 +1,9 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# WEBPACK TEMPLATE^
+# To Do List
 
-web pack template to use on future webpack projects 
+a to do list javascript app buit using webpack and es6
+
 ## Getting Started
 
 - Clone the repo.
